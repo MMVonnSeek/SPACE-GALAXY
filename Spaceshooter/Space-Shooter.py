@@ -7,3 +7,5 @@ from os import path
 img_dir = path.join(path.dirname(__file__), 'ativos')
 sound_folder = path.join(path.dirname(__file__), 'sons')
 
+########################################################
+## para colocar em "constant.py" depois
