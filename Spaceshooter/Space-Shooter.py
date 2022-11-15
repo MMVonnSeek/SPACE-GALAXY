@@ -4,4 +4,4 @@ import random
 from os import path
 
 ## pasta de ativos 
-img_dir = 
+img_dir = path.join()
