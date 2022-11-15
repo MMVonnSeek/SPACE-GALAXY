@@ -5,4 +5,5 @@ from os import path
 
 ## pasta de ativos 
 img_dir = path.join(path.dirname(__file__), 'ativos')
-sound_folder = path.join(path.dirname(__file__), '')
+sound_folder = path.join(path.dirname(__file__), 'sons')
+
