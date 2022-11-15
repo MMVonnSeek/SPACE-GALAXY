@@ -16,4 +16,4 @@ POWERUP_TIME = 5000
 BAR_LENGTH = 100
 BAR_HEIGHT = 10
 
-#
+# Defina as cores
