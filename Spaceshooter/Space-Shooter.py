@@ -10,3 +10,4 @@ sound_folder = path.join(path.dirname(__file__), 'sons')
 ########################################################
 ## para colocar em "constant.py" depois
 WIDTH = 480
+HEIGHT = 600
