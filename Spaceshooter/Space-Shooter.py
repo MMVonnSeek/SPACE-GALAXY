@@ -3,4 +3,4 @@ import pygame
 import random
 from os import path
 
-## assets folder
+## pasta de ativos
