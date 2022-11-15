@@ -12,3 +12,4 @@ sound_folder = path.join(path.dirname(__file__), 'sons')
 WIDTH = 480
 HEIGHT = 600
 FPS = 60
+POWERUP_TIME = 5000
