@@ -76,4 +76,6 @@ def main_menu():
     pygame.display.update()
 
 def draw_text(surf, text, size, x, y):
-    ## 
+    ## selecionando uma fonte de plataforma cruzada para exibir a pontuação
+    font = pygame.font.Font(font_name, size)
+    text_surface = font.render(text, True, WHITE)
