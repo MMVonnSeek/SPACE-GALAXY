@@ -29,3 +29,14 @@ AQUA = (0, 255, 255)
 #########################################################
 
 #########################################################
+## colocar em "__init__.py" mais tarde
+## inicialize o pygame e crie a janela
+pygame.init()
+pygame.mixer.init()  ## Para o som
+screen = pygame.display.set_mode((WIDHT, HEIGHT))
+pygame.display.set_caption("Space Shooter - Feito por Max Muller")
+clock = pygame.time.Clock()   ##  Para sincronizar o FPS
+#########################################################
+
+font_name = pygame.font.match_font('arial')
+
