@@ -100,3 +100,4 @@ def draw_shield_bar(surf, x, y, pct):
 
 
     def draw_lives(surf, x, y, lives, img):
+        for i in range(lives):
