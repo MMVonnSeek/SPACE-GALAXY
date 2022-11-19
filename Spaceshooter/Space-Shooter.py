@@ -75,3 +75,5 @@ def main_menu():
     draw_text(screen, "PREPARE-SE", 60, WIDTH/2, HEIGHT/2)
     pygame.display.update()
 
+def draw_text(surf, text, size, x, y):
+    ## 
