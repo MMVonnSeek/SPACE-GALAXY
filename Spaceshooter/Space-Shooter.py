@@ -58,3 +58,6 @@ def main_menu():
             if ev.key == pygame.K_RETURN:
                 break
             elif ev.key == pygame.K_q:
+                pygame.quit()
+                quit()
+            elif ev,type == pygame.QUIT:    
