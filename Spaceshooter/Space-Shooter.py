@@ -60,4 +60,7 @@ def main_menu():
             elif ev.key == pygame.K_q:
                 pygame.quit()
                 quit()
-            elif ev,type == pygame.QUIT:    
+            elif ev,type == pygame.QUIT:
+                pygame.quit()
+                quit()
+                    
