@@ -81,3 +81,6 @@ def draw_text(surf, text, size, x, y):
     text_surface = font.render(text, True, WHITE)                          ## True denota a fonte a ser suavizada
     text_rect = text_surface.get_rect()
     text_rect.midtop = (x, y)
+    surf.blit(text_surface, text_rect)
+
+    
