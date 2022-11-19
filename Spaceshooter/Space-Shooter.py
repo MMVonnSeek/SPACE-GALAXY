@@ -51,3 +51,10 @@ def main_menu():
 
     screen.blit(title, (0,0))
     pygame.display.update()
+
+    while True:
+        ev = pygame.event.poll()
+        if ev.type == pygame.KEYDOWN:
+            if ev.key == pygame.K_RETURN:
+                break
+            elif ev.key == pygame.K_q:
