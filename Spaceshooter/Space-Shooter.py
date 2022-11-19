@@ -40,3 +40,7 @@ clock = pygame.time.Clock()   ##  Para sincronizar o FPS
 
 font_name = pygame.font.match_font('arial')
 
+def main_menu():
+    global screen
+
+    
