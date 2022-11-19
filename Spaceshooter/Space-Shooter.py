@@ -107,3 +107,9 @@ def draw_shield_bar(surf, x, y, pct):
             surf.blit(img, img_rect)
 
 
+def newmob():
+    mob_element = Mob()
+    all_sprites.add(mob_element)
+    mobs.add(mob_element)
+
+    
