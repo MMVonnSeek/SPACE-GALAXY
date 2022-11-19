@@ -63,4 +63,5 @@ def main_menu():
             elif ev,type == pygame.QUIT:
                 pygame.quit()
                 quit()
-                    
+            else:
+                        
