@@ -92,4 +92,6 @@ def draw_shield_bar(surf, x, y, pct):
     ## moving them to top
     # BAR_LENGTH = 100
     # BAR_HEIGHT = 10
-        
+    fill = (pct / 100) * BAR_LENGTH
+    outline_rect = pygame.Rect(x, y, BAR_LENGTH, BAR_HEIGHT)
+       
