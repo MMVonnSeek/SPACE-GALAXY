@@ -83,4 +83,11 @@ def draw_text(surf, text, size, x, y):
     text_rect.midtop = (x, y)
     surf.blit(text_surface, text_rect)
 
-    
+def draw_shield_bar(surf, x, y, pct):
+    # if pct < 0:
+    #     pct = 0
+    pct = max(pct, 0)
+    ## moving them to top
+    # BAR_LENGTH = 100
+    # BAR_HEIGHT = 10
+        
