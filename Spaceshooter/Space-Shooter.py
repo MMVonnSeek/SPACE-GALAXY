@@ -64,4 +64,4 @@ def main_menu():
                 pygame.quit()
                 quit()
             else:
-                draw_text(screen, )        
+                draw_text(screen, "Aperte [ENTER] para Começar", )        
