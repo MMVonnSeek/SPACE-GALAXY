@@ -115,4 +115,4 @@ def newmob():
 class Explosion(pygame.sprites.Sprite):
     def __init__(self, center, size):
         pygame.sprite.Sprite.__init__(self)
-            
+        self.size = size    
