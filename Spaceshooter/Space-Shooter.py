@@ -69,4 +69,6 @@ def main_menu():
                 pygame.display.update()
 
 #pygame.mixer.muisc.stop()
-ready = pygame.mixer.Sound(path.join(sound_folder,'getready.ogg'))                        
+ready = pygame.mixer.Sound(path.join(sound_folder,'getready.ogg'))
+ready.play()
+                        
