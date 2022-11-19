@@ -65,4 +65,4 @@ def main_menu():
                 quit()
             else:
                 draw_text(screen, "Aperte [ENTER] para Começar", 30, WIDTH/2, HEIGHT/2)
-                draw_text(screen, )        
+                draw_text(screen, "ou [Q] para Sair", )        
