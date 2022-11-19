@@ -115,4 +115,80 @@ def newmob():
 class Explosion(pygame.sprites.Sprite):
     def __init__(self, center, size):
         pygame.sprite.Sprite.__init__(self)
-        self.size = size    
+        self.size = size
+        self.image = explosion_anim[self.size][0]
+        self.rect = self.image.get_rect()
+        self.rect.center = center
+        self.frame = 0
+        self.last_update = pygame.time.get_ticks()
+        self.frame_rate = 75
+
+    def update(self):
+        now = pygame.time.get_ticks()
+        if now - self.last_update > self.frame_rate:
+            self.last_update = nowself.frame += 1
+            if self.fram == len(explosion_anim[self.size]):
+                self.kill()
+            else:
+                center = self.rect.center
+                self.image = explosion_anim[self.size][self.frame]
+                self.rect = self.image.get+rect()
+                self.rect.center = center
+
+
+class Player(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprites.__init__(self)
+        ## dimensionar o jogador img para baixo
+        self.image = pygame.transform.scale(player_img, (50, 38))
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()
+        self.radius = 20
+        self.rectcenterx = WIDTH / 2
+        self.ect.bottom = HEIGHT - 10
+        self.speedx = 0
+        self.shield = 100
+        self.shoot_delay = 250
+        self.last_shot = pygame.time.det_ticks()
+        self.lives = 3
+        self.hidden = False
+        self.hide_timer = pygame.time.get_ticks()
+        self.power = 1
+        self.power_timer = pygame.time.get_ticks()
+
+    def update(self):
+        ## tempo limite dos poderes
+        if self.power >=2 and pygame.time.get_ticks() - self.power_time > POWERUP_TIME:
+           self.power -= 1
+           self.power_time = pygame.time.get_ticks()
+
+        ## reexibir
+        if self.hidden and pygame.time.get_ticks() - self.hide_timer > 1000:
+            self.hidden = False
+            self.rect.centerx = WIDTH / 2
+            self.rect.bottom = HEIGHT - 30
+
+        self.speedx = 0     ## torna o player estático na tela por padrão.
+        # temos que verificar se há um tratamento de evento sendo feito para as teclas de seta
+        ## pressionadas
+
+        ## irá devolver uma lista das teclas que foram pressionadas nesse momento
+        keystate = pygame.key.get_pressed()
+        if keystate[pygame.K_LEFT]:
+            self.speedx = -5
+        elif keystate[pygame.K_RIGHT]:
+            self.speedx = 5
+
+        # Armas de fogo segurando a barra de espaço
+        if keystate[pygame.K_SPACE]:
+            self.shoot()
+
+        ## verifica as bordas à esquerda e à direita
+        if self.rect.right > WIDTH:
+            self.rect.right = WIDTH
+        if self.rect.left < 0:
+            self.rect.left = 0
+
+        self.rect.x += self.speedx
+
+    
