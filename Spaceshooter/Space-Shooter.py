@@ -75,6 +75,7 @@ def main_menu():
     draw_text(screen, "PREPARE-SE", 60, WIDTH/2, HEIGHT/2)
     pygame.display.update()
 
+
 def draw_text(surf, text, size, x, y):
     ## selecionando uma fonte de plataforma cruzada para exibir a pontuação
     font = pygame.font.Font(font_name, size)
@@ -82,6 +83,7 @@ def draw_text(surf, text, size, x, y):
     text_rect = text_surface.get_rect()
     text_rect.midtop = (x, y)
     surf.blit(text_surface, text_rect)
+
 
 def draw_shield_bar(surf, x, y, pct):
     # if pct < 0:
