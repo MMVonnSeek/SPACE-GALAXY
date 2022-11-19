@@ -66,4 +66,6 @@ def main_menu():
             else:
                 draw_text(screen, "Aperte [ENTER] para Começar", 30, WIDTH/2, HEIGHT/2)
                 draw_text(screen, "ou [Q] para Sair", 30, WIDTH/2, (HEIGHT/2)+40)
-                pygame.display.update()        
+                pygame.display.update()
+
+#                        
