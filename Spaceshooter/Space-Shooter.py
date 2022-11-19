@@ -112,4 +112,7 @@ def newmob():
     all_sprites.add(mob_element)
     mobs.add(mob_element)
 
-    
+class Explosion(pygame.sprites.Sprite):
+    def __init__(self, center, size):
+        pygame.sprite.Sprite.__init__(self)
+            
