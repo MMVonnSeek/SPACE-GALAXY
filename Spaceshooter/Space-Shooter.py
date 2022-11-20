@@ -191,4 +191,10 @@ class Player(pygame.sprite.Sprite):
 
         self.rect.x += self.speedx
 
-    
+    def shoot(self):
+        ## informar a bala o local de spawn
+        now = pygame.time.get_ticks()
+        if now - self.last_shot > self.shoot_delay:
+            self.last_shot = now
+            if self.power == 1:
+                
