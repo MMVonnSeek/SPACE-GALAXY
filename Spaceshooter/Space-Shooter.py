@@ -258,3 +258,6 @@ class Mob(pygame.sprites.Sprite):
         time_now = pygame.time.get_ticks()
         if time_now - self.last_update > 50: # em milissegundos
             self.last_update = time_now
+            self.rotation = (self.rotation + self rotation_speed) % 360
+            new_image = pygame.transform.rotate(self.image_orig, self.rotation)
+            
