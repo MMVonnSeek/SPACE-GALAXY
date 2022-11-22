@@ -250,4 +250,9 @@ class Mob(pygame.sprites.Sprite):
         self.speddx = random.randrange(-3, 3)
 
         ##  adicionando rotação ao elemento mob
-                            
+        self.rotation = 0
+        self.rotation_speed = random.randrange(=8, 8) 
+        self.last_update = pygame.time.get_ticks()  ##  momento em que a rotação tem que acontecer
+
+    def rotate(self):
+                               
