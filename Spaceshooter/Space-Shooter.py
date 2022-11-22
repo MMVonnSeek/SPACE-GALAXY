@@ -256,4 +256,5 @@ class Mob(pygame.sprites.Sprite):
 
     def rotate(self):
         time_now = pygame.time.get_ticks()
-                               
+        if time_now - self.last_update > 50: # em milissegundos
+            self.last_update = time_now
