@@ -255,4 +255,5 @@ class Mob(pygame.sprites.Sprite):
         self.last_update = pygame.time.get_ticks()  ##  momento em que a rotação tem que acontecer
 
     def rotate(self):
+        time_now = pygame.time.get_ticks()
                                
