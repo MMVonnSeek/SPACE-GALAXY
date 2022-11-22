@@ -245,5 +245,9 @@ class Mob(pygame.sprites.Sprite):
         self.rect.x = random.randrange(0, WIDTH - self.rect.width)
         self.rect.y = random.randrange(-150, -100)
         self.speedy = random.randrange(5, 20)  ##  para randomizar a velocidade do Mob
-        
+
+        ## randomize os movimentos um pouco mais
+        self.speddx = random.randrange(-3, 3)
+
+        ##  adicionando rotação ao elemento mob
                             
