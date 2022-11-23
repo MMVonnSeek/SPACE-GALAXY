@@ -332,4 +332,10 @@ class Missile(pygame.sprite.Sprite):
         self.speedy = -10
 
     def update(self):
-        """"""                                                                                                                                                                                      
+        """deve aparecer bem na frente do jogador"""
+        self.rect.y += self.speedy
+        if self.rect.bottom < 0:
+            self.kill()
+
+
+#########################################################
