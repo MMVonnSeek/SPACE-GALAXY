@@ -311,4 +311,6 @@ class Bullet(pygame.sprite.Sprite):
 
     def update(self):      
         """deve aparecer bem na frente do jogador"""
+        self.rect.y += self.speedy
+        ##  mate o sprite depois que ele passar pela borda superior
                                                      
