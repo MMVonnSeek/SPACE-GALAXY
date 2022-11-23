@@ -345,3 +345,4 @@ background = pygame.image,load(path.join(img_dir, 'starfield.png')).convert()
 background_rect = background.get_rect()
 ##  desenhe este reto primeiro
 
+player_img = pygame.image.load(path.join(img_dir, 'playerShip1_orange.png')).convert()
