@@ -277,4 +277,8 @@ class Mob(pygame.sprites.Sprite):
             self.speedy = random.randrange(1, 8)  ##  para randomizar a velocidade do Mob
 
 
-##  coloque a bala de acordo com a posição atual do jogador                   
+##  coloque a bala de acordo com a posição atual do jogador
+            self.rect.center = center 
+            self.speedy = 2
+            
+                               
