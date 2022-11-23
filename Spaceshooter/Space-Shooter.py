@@ -276,9 +276,22 @@ class Mob(pygame.sprites.Sprite):
             self.rect.y = random.randrange(-100, -40)
             self.speedy = random.randrange(1, 8)  ##  para randomizar a velocidade do Mob
 
+            
+##  defina a sprite para Powerups   
+class Pow(pygame.sprite.Sprite):
+    def __init__(self, center):
+        pygame.sprite.Sprite.__init__(self)
+        self.type = random.choice(['shield', 'gun'])
+        self.image = powerup_images[self.type]
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()                             
+        ##  coloque a bala de acordo com a posição atual do jogador
+        self.rect.center = center 
+        self.speedy = 2
 
-##  coloque a bala de acordo com a posição atual do jogador
-            self.rect.center = center 
-            self.speedy = 2
-
-    def update(self):                           
+    def update(self):   
+        """deve aparecer bem na frente do jogador"""
+        self.rect.y += self.speedy
+        ##  mate o sprite depois que ele passar pela borda superior
+        if self.rect.top > HEIGHT:
+            self.kill()                        
