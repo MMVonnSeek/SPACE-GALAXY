@@ -260,4 +260,10 @@ class Mob(pygame.sprites.Sprite):
             self.last_update = time_now
             self.rotation = (self.rotation + self rotation_speed) % 360
             new_image = pygame.transform.rotate(self.image_orig, self.rotation)
-            
+            old_center = new_image
+            self.image = new_image
+            self.rect = new.image.get_rect()
+            self.rect.center = old_center
+
+    def update(self):
+        self.rotate()        
