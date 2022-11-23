@@ -268,4 +268,10 @@ class Mob(pygame.sprites.Sprite):
     def update(self):
         self.rotate() 
         self.rect.x += self.speedx
-        self.rect.y += self.speedy       
+        self.rect.y += self.speedy
+        ##  agora e se o elemento mob sair da tela
+
+        if (self.rect.top > HEIGHT + 10) or (self.rect.left < -25) or (self.rect.right > HEIDTH +20):
+            self.rect.x = random.randrange(0, WIDTH - self.rect.width)
+            self.rect.y = random.randrange(-100, -40)
+            self.speedy = random.randrange(1, 8)  ##         
