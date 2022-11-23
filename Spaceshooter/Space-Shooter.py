@@ -362,3 +362,5 @@ meteor_list = [
     'meteorbrown_tiny1.png'
 ]
 
+for image in meteor_list:
+    
