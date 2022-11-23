@@ -321,4 +321,15 @@ class Bullet(pygame.sprite.Sprite):
         ##  adicionando um evento para ele no loop do jogo
 
 ##  MÍSSEIS DE FOGO    
-class Missile(pygame.sprite.Sprite):                       
+class Missile(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = missile_img
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()
+        self.rect.bottom = y
+        self.rect.centerx = x
+        self.speedy = -10
+
+    def update(self):
+        """"""                                                                                                                                                                                      
