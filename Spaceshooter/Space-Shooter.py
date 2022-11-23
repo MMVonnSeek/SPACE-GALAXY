@@ -350,4 +350,15 @@ player_mini_img = pygame.transform.scale(player_img, (25, 19))
 player_mini_img.set_colorkey(BLACK)
 bullet_img = pygame.image.load(path.join(img_dir, 'laserRed16.png')).convert()
 missile_img = pygame.image.load(path.join(img_dir, 'missile.png')).convert_alpha()
-# 
+meteor_img = pygame.image.load(path.join(img_dir, 'meteorBrown_med1.png')).convert()
+meteor_images = []
+meteor_list = [
+    'meteorBrown_big1.png',
+    'meteorBrown_big2.png',
+    'meteorBrown_med1.png',
+    'meteorBrown_med3.ong',
+    'meteorBrown_small1.png',
+    'meteorBrown_small2.png',
+    'meteorbrown_tiny1.png'
+]
+
