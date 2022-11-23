@@ -346,3 +346,4 @@ background_rect = background.get_rect()
 ##  desenhe este reto primeiro
 
 player_img = pygame.image.load(path.join(img_dir, 'playerShip1_orange.png')).convert()
+player_mini_img = pygame.transform.scale(player_img, (25, 19))
