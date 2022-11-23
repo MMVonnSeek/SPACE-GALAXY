@@ -266,4 +266,6 @@ class Mob(pygame.sprites.Sprite):
             self.rect.center = old_center
 
     def update(self):
-        self.rotate()        
+        self.rotate() 
+        self.rect.x += self.speedx
+        self.rect.y += self.speedy       
