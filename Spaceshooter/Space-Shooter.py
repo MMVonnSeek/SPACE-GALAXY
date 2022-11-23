@@ -342,3 +342,5 @@ class Missile(pygame.sprite.Sprite):
 ## Carregar todas as imagens do jogo
 
 background = pygame.image,load(path.join(img_dir, 'starfield.png')).convert()
+background_rect = background.get_rect()
+##  
