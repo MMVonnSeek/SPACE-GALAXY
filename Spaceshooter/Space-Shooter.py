@@ -274,4 +274,7 @@ class Mob(pygame.sprites.Sprite):
         if (self.rect.top > HEIGHT + 10) or (self.rect.left < -25) or (self.rect.right > HEIDTH +20):
             self.rect.x = random.randrange(0, WIDTH - self.rect.width)
             self.rect.y = random.randrange(-100, -40)
-            self.speedy = random.randrange(1, 8)  ##         
+            self.speedy = random.randrange(1, 8)  ##  para randomizar a velocidade do Mob
+
+
+##  coloque a bala de acordo com a posição atual do jogador                   
