@@ -316,4 +316,9 @@ class Bullet(pygame.sprite.Sprite):
         if self.rect.bottom < 0:
             self.kill()
 
-            
+        ##  agora precisamos de uma maneira de atirar
+        ##  vamos vinculá-lo à "barra de espaço".
+        ##  adicionando um evento para ele no loop do jogo
+
+##  MÍSSEIS DE FOGO    
+class Missile(pygame.sprite.Sprite):                       
