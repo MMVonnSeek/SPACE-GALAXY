@@ -343,4 +343,5 @@ class Missile(pygame.sprite.Sprite):
 
 background = pygame.image,load(path.join(img_dir, 'starfield.png')).convert()
 background_rect = background.get_rect()
-##  
+##  desenhe este reto primeiro
+
