@@ -280,5 +280,5 @@ class Mob(pygame.sprites.Sprite):
 ##  coloque a bala de acordo com a posição atual do jogador
             self.rect.center = center 
             self.speedy = 2
-            
-                               
+
+    def update(self):                           
