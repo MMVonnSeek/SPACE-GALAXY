@@ -309,4 +309,6 @@ class Bullet(pygame.sprite.Sprite):
         self.rect.centerx = x
         self.speedy = -10
 
-    def update(self):                                                   
+    def update(self):      
+        """deve aparecer bem na frente do jogador"""
+                                                     
