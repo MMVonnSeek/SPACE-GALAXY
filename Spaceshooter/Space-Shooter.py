@@ -363,4 +363,17 @@ meteor_list = [
 ]
 
 for image in meteor_list:
+    meteor_images.append(pygame.image.load(path.join(img_dir, image)).convert())
     
+## Explosão do meteoro
+explosion_anim = {}
+explosion_anim['lg'] = []
+explosion_anim['sn'] = []
+explosion_anim['player'] = []
+for i in range(9):
+    filename = 'regularExplosion0{}.png'.format(i)
+    img = pygame.image.load(path.join(img_dir, filename)).convert()
+    img.set_colorkey(BLACK)
+    ##  redimensionar a explosão
+    img_lg = pygame.transform.scale(img, (75, 75))
+        
