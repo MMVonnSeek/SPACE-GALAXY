@@ -376,4 +376,8 @@ for i in range(9):
     img.set_colorkey(BLACK)
     ##  redimensionar a explosão
     img_lg = pygame.transform.scale(img, (75, 75))
-        
+    explosion_anim['lg'].append(img_lg)
+    img_sm = pygame.transform.sclae(img, (32, 32))
+    explosion_anim['sm'].append(img_sm)
+    
+       
