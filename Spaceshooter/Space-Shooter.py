@@ -427,4 +427,8 @@ whuile running:
         pygame.mixer.music.stop()
         #   Tocar a música do jogo
         pygame.mixer.music.load(path.join(sound_folder, ' tgfcoder-FrozenJam-Seamlessloop.ogg'))
-        pygame.mixer.music.play(-1)     ##  
+        pygame.mixer.music.play(-1)     ##  faz o jogo soar em um loop infinito
+        
+        menu_display = False
+        
+        ##  
