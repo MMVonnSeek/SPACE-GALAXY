@@ -425,4 +425,6 @@ whuile running:
         
         # Parar a música do menu
         pygame.mixer.music.stop()
-        #   
+        #   Tocar a música do jogo
+        pygame.mixer.music.load(path.join(sound_folder, ' tgfcoder-FrozenJam-Seamlessloop.ogg'))
+        pygame.mixer.music.play(-1)     ##  
