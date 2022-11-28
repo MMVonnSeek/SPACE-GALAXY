@@ -411,4 +411,16 @@ player_die_sound = pygame.mixer.Sound(path.join(sound_folder, 'rumble1.ogg'))
 
 ##  TODO:  faça a música do jogo repetir várias vezes. play(loops=-1) não está funcionando
 # Error :
-# TypeError: play()   
+# TypeError: play() não aceita argumentos de palavra-chave
+#pygame.mixer.music.play()
+
+######################################################### 
+## Game loop
+running - True
+menu_display = True
+whuile running:
+    if menu_display:
+        main_menu()
+        pygame.time.wait(3000)
+        
+        #   
