@@ -409,4 +409,6 @@ pygame.mixer.music.set_volume(0.2)     ##   diminuiu um pouco o som
 player_die_sound = pygame.mixer.Sound(path.join(sound_folder, 'rumble1.ogg'))
 ######################################################### 
 
-##  TODO:      
+##  TODO:  faça a música do jogo repetir várias vezes. play(loops=-1) não está funcionando
+# Error :
+# TypeError: play()   
