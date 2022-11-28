@@ -402,4 +402,6 @@ missile_sound = pygame.mixer.Sound(path.join(sound_folder, 'rocket.ogg'))
 expl_sounds = []
 for sound in ['exp13.wav', 'exp16.wav']:
     expl_sounds.append(pygame.mixer.Sound(path.join(sound_folder, sound)))
-##            
+##  música de fundo principal    
+#pygame.mixer.music.load(path.join(sound_folder, 'tgfcoder-FrozenJam-SeamlessLoop.ogg'))
+pygame.mixer.music.set_volume(0.2)     ##        
