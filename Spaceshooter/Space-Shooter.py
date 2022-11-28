@@ -431,4 +431,5 @@ whuile running:
         
         menu_display = False
         
-        ##  
+        ##  agrupar todos os sprites juntos para facilitar a atualização
+        
