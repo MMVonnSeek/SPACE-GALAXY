@@ -397,4 +397,9 @@ powerup_images['gun'] = pygame.image.load(path.join(img_dir, 'bolt_gold.png')).c
 
 ######################################################### 
 ### Carregar todos os sons do jogo
-      
+shooting_sound = pygame.mixer.Sound(path.join(sound_folder, 'pew.wav'))
+missile_sound = pygame.mixer.Sound(path.join(sound_folder, 'rocket.ogg'))
+expl_sounds = []
+for sound in ['exp13.wav', 'exp16.wav']:
+    expl_sounds.append(pygame.mixer.Sound(path.join(sound_folder, sound)))
+##            
