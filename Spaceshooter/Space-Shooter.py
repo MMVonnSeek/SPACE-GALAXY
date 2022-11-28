@@ -387,4 +387,14 @@ for i in range(9):
     explosion_anim['player'].append(img)
     
 ##  carregar power-ups
-     
+powerup_images = {}
+powerup_images['shield'] = pygame.image.load(path.join(img_dir, 'shield_gold.png')).convert()
+powerup_images['gun'] = pygame.image.load(path.join(img_dir, 'bolt_gold.png')).convert()
+
+
+#########################################################
+
+
+######################################################### 
+### Carregar todos os sons do jogo
+      
