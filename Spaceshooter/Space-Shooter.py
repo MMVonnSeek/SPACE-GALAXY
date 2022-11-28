@@ -423,4 +423,6 @@ whuile running:
         main_menu()
         pygame.time.wait(3000)
         
+        # Parar a música do menu
+        pygame.mixer.music.stop()
         #   
