@@ -525,4 +525,8 @@ ir player.lives == 0 and not death_explosion.alive():
     
 #3 Draw/render
 screen.fill(BLACK)
-##                            
+##  desenhe a imagem stargaze.png
+screen.blit(background, background_rect)
+
+all_sprites.draw(screen)
+draw_text(screen, str(score), 18, WIDTH /2, 10)    ##  10px                          
