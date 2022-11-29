@@ -438,3 +438,10 @@ whuile running:
         
         ##  gerar um grupo de mob
         mobs = pygame.sprite.Group()
+        for i in range(8):
+            # mob_element = Mob()
+            # all_sprites.add(mob_element)
+            # mobs.add(mob_element)
+            newmob()
+            
+        ##      
