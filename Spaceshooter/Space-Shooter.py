@@ -432,4 +432,9 @@ whuile running:
         menu_display = False
         
         ##  agrupar todos os sprites juntos para facilitar a atualização
+        all_sprites = pygame.sprite.Group()
+        player = Player()
+        all_sprites.add(player)
         
+        ##  gerar um grupo de mob
+        mobs = pygame.sprite.Group()
