@@ -473,4 +473,9 @@ whuile running:
     
     ##  verifica se uma bala atingiu um mob
     ##  agora temos um grupo de balas e um grupo de mob
-              
+    hits = pygame.sprite.groupcollide(mobs, bullets, True, True)
+    ##  agora, como excluímos o elemento mob quando acertamos um com uma bala, precisamos resgatá-los novamente
+    ##  pois não haverá mob_elements deixado de fora
+    for hit in hits:
+        score += 50 - hit.radius    ##  dê pontuações diferentes para acertar meteoros grandes e pequenos
+                  
