@@ -478,4 +478,13 @@ whuile running:
     ##  pois não haverá mob_elements deixado de fora
     for hit in hits:
         score += 50 - hit.radius    ##  dê pontuações diferentes para acertar meteoros grandes e pequenos
-                  
+        random.choice(expl_sound).play()
+        # m = Mob()
+        # all_sprites.add(m)
+        expl = Explosion(hit.rect.center, 'lg')
+        all_sprites.add(expl)
+        if random.random() > 0.9:
+            pow = Pow(hit.rect.center)
+            all_sprites.add(pow)
+            powerups.add(pow)
+        newmob()  ##  gera um novo mob              
