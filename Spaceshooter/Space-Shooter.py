@@ -487,4 +487,9 @@ whuile running:
             pow = Pow(hit.rect.center)
             all_sprites.add(pow)
             powerups.add(pow)
-        newmob()  ##  gera um novo mob              
+        newmob()  ##  gera um novo mob
+        
+##  o loop acima criará a quantidade de objetos mob que foram mortos e aparecerão novamente
+#########################################################
+
+       
