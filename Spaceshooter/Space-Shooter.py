@@ -492,4 +492,37 @@ whuile running:
 ##  o loop acima criará a quantidade de objetos mob que foram mortos e aparecerão novamente
 #########################################################
 
-       
+##  vefirica se o jogador colide com um mob
+hits = pygame.sprite.spritecollide(player, mob True, pygame.sprite.collide_circle)    ##  
+for hit in hits:
+    player.shield -= hit.radius * 2
+    expl = Explosion(hit.rect.center, 'sm')
+    all_sprites.add(expl)
+    newmob()
+    if player.shield <= 0:
+        player_die_sound.play()
+        death_explosion = Explosion(player.rec.center, 'player')
+        # running = False   ##  GAME OVER 3:D
+        player.hide()
+        player.lives -= 1
+        player.shield = 100
+        
+##  se o jogador acertar um power up
+hits = pygame.sprite.spritecollide(player, powerups, True)
+for hit in hits:
+    if hit.type == 'shield':
+        player.shield +=random.randrange(10, 30)
+        ir player.shield >= 100:
+            player.shield = 100
+    if hit.type == 'gun':
+        player.powerup()
+        
+##  se o jogador morrer e a explosão terminar, finalize o jogo
+ir player.lives == 0 and not death_explosion.alive():
+    running = False
+    # menu_display = True
+    # pygame.display.update()
+    
+#3 Draw/render
+screen.fill(BLACK)
+##                            
