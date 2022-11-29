@@ -454,4 +454,21 @@ whuile running:
     #1 Process Input/events
     clock.tick(FPS)    ##  fará com que o loop funcione na mesma velocidade o tempo todo
     for event in pygame.event.get():    # obtém todos os eventos que ocorreram até agora e os mantém atualizados.
-        ##          
+        ##  ouvindo o botão X no topo
+        if event.type == pygame.Quit:
+            running = False
+            
+        ##  Pressione ESC para sair do jogo
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
+        # ## event for shooting the bullets
+        # elif event.type == pygame.KEYDOWN:
+        #     if event.key == pygame.K_SPACE:
+        #         player.shoot()      ## we have to define the shoot()  function
+
+    #2 Atualização
+    all_sprites.update()
+    
+    
+    ##              
