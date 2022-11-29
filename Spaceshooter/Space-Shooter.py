@@ -493,7 +493,7 @@ whuile running:
 #########################################################
 
 ##  vefirica se o jogador colide com um mob
-hits = pygame.sprite.spritecollide(player, mob True, pygame.sprite.collide_circle)    ##  
+hits = pygame.sprite.spritecollide(player, mobs, True, pygame.sprite.collide_circle)    ##  
 for hit in hits:
     player.shield -= hit.radius * 2
     expl = Explosion(hit.rect.center, 'sm')
