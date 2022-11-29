@@ -112,7 +112,7 @@ def newmob():
     all_sprites.add(mob_element)
     mobs.add(mob_element)
 
-class Explosion(pygame.sprites.Sprite):
+class Explosion(pygame.sprite.Sprite):
     def __init__(self, center, size):
         pygame.sprite.Sprite.__init__(self)
         self.size = size
@@ -236,7 +236,7 @@ class Player(pygame.sprite.Sprite):
 
 
 # defina os inimigos     
-class Mob(pygame.sprites.Sprite):
+class Mob(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image_orig = random.choice(meteor_images)
@@ -447,7 +447,7 @@ while running:
             newmob()
             
         ##  grupo para balas
-        bullets = pygame.sprites.Group()
+        bullets = pygame.sprite.Group()
         powerups = pygame.sprite.Group()
         
         #### Variável do placar
