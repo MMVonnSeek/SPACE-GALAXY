@@ -535,4 +535,9 @@ draw_shield_bar(screen, 5, 5, player.shield)
 # Desenhe vidas
 draw_lives(screen, WIDTH - 100, 5, player_mini_img)
 
-##                         
+##  Feito depois de desenhar tudo na tela
+pygame.display.flip()
+
+pygame.quit()
+
+# By: Max Muller                     
