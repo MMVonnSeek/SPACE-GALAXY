@@ -46,7 +46,7 @@ def main_menu():
     menu_song = pygame.mixer.music.load(path.join(sound_folder, "manu.ogg"))
     pygame.mixer.music.play(-1)
 
-    title = pygame.image.load(path.join(img_dir "main.png")).convert()
+    title = pygame.image.load(path.join(img_dir, "main.png")).convert()
     title = pygame.transform.scale(title, (WIDTH, HEIGHT), screen)
 
     screen.blit(title, (0,0))
