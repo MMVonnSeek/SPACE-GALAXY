@@ -453,4 +453,5 @@ whuile running:
         
     #1 Process Input/events
     clock.tick(FPS)    ##  fará com que o loop funcione na mesma velocidade o tempo todo
-    for event in pygame.event.get():    #         
+    for event in pygame.event.get():    # obtém todos os eventos que ocorreram até agora e os mantém atualizados.
+        ##          
