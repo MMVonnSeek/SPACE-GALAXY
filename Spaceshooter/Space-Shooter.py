@@ -471,4 +471,6 @@ whuile running:
     all_sprites.update()
     
     
-    ##              
+    ##  verifica se uma bala atingiu um mob
+    ##  agora temos um grupo de balas e um grupo de mob
+              
