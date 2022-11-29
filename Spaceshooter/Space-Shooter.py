@@ -33,7 +33,7 @@ AQUA = (0, 255, 255)
 ## inicialize o pygame e crie a janela
 pygame.init()
 pygame.mixer.init()  ## Para o som
-screen = pygame.display.set_mode((WIDHT, HEIGHT))
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Shooter - Feito por Max Muller")
 clock = pygame.time.Clock()   ##  Para sincronizar o FPS
 #########################################################
@@ -71,7 +71,7 @@ def main_menu():
     #pygame.mixer.muisc.stop()
     ready = pygame.mixer.Sound(path.join(sound_folder,'getready.ogg'))
     ready.play()
-    screen.fill(BACK)
+    screen.fill(BLACK)
     draw_text(screen, "PREPARE-SE", 60, WIDTH/2, HEIGHT/2)
     pygame.display.update()
 
@@ -133,7 +133,7 @@ class Explosion(pygame.sprites.Sprite):
             else:
                 center = self.rect.center
                 self.image = explosion_anim[self.size][self.frame]
-                self.rect = self.image.get+rect()
+                self.rect = self.image.get_rect()
                 self.rect.center = center
 
 
@@ -201,7 +201,7 @@ class Player(pygame.sprite.Sprite):
                 bullet = Bullet(self.rect.centerx, self.rect.top)
                 all_sprites.add(bullet)
                 bullets.add(bullet)
-                shoorting_sound.play()
+                shooting_sound.play()
             if self.power == 2:
                 bullet1 = Bullet(self.rect.left, self.rect.centery)
                 bullet2 = Bullet(self.rect.right, self.rect.centery)
@@ -230,7 +230,8 @@ class Player(pygame.sprite.Sprite):
         self.power_time = pygame.time.get_ticks()
 
     def hide(self):
-        self.hidden = Trueself.hide_timer = pygame.time.get_ticks()
+        self.hidden = True
+        self.hide_timer = pygame.time.get_ticks()
         self.rect.center = (WIDTH / 2, HEIGHT + 200)
 
 
@@ -263,7 +264,7 @@ class Mob(pygame.sprites.Sprite):
             new_image = pygame.transform.rotate(self.image_orig, self.rotation)
             old_center = new_image
             self.image = new_image
-            self.rect = new.image.get_rect()
+            self.rect = new_image.get_rect()
             self.rect.center = old_center
 
     def update(self):
@@ -272,7 +273,7 @@ class Mob(pygame.sprites.Sprite):
         self.rect.y += self.speedy
         ##  agora e se o elemento mob sair da tela
 
-        if (self.rect.top > HEIGHT + 10) or (self.rect.left < -25) or (self.rect.right > HEIDTH +20):
+        if (self.rect.top > HEIGHT + 10) or (self.rect.left < -25) or (self.rect.right > HEIGHT +20):
             self.rect.x = random.randrange(0, WIDTH - self.rect.width)
             self.rect.y = random.randrange(-100, -40)
             self.speedy = random.randrange(1, 8)  ##  para randomizar a velocidade do Mob
@@ -342,7 +343,7 @@ class Missile(pygame.sprite.Sprite):
 #########################################################
 ## Carregar todas as imagens do jogo
 
-background = pygame.image,load(path.join(img_dir, 'starfield.png')).convert()
+background = pygame.image.load(path.join(img_dir, 'starfield.png')).convert()
 background_rect = background.get_rect()
 ##  desenhe este reto primeiro
 
@@ -417,7 +418,7 @@ player_die_sound = pygame.mixer.Sound(path.join(sound_folder, 'rumble1.ogg'))
 
 ######################################################### 
 ## Game loop
-running - True
+running = True
 menu_display = True
 while running:
     if menu_display:
@@ -479,7 +480,7 @@ while running:
     ##  pois não haverá mob_elements deixado de fora
     for hit in hits:
         score += 50 - hit.radius    ##  dê pontuações diferentes para acertar meteoros grandes e pequenos
-        random.choice(expl_sound).play()
+        random.choice(expl_sounds).play()
         # m = Mob()
         # all_sprites.add(m)
         expl = Explosion(hit.rect.center, 'lg')
@@ -490,55 +491,57 @@ while running:
             powerups.add(pow)
         newmob()  ##  gera um novo mob
         
-##  o loop acima criará a quantidade de objetos mob que foram mortos e aparecerão novamente
-#########################################################
+    ##  o loop acima criará a quantidade de objetos mob que foram mortos e aparecerão novamente
+    #########################################################
 
-##  vefirica se o jogador colide com um mob
-hits = pygame.sprite.spritecollide(player, mobs, True, pygame.sprite.collide_circle)    ##  
-for hit in hits:
-    player.shield -= hit.radius * 2
-    expl = Explosion(hit.rect.center, 'sm')
-    all_sprites.add(expl)
-    newmob()
-    if player.shield <= 0:
-        player_die_sound.play()
-        death_explosion = Explosion(player.rec.center, 'player')
-        # running = False   ##  GAME OVER 3:D
-        player.hide()
-        player.lives -= 1
-        player.shield = 100
-        
-##  se o jogador acertar um power up
-hits = pygame.sprite.spritecollide(player, powerups, True)
-for hit in hits:
-    if hit.type == 'shield':
-        player.shield +=random.randrange(10, 30)
-        if player.shield >= 100:
+    ##  vefirica se o jogador colide com um mob
+    hits = pygame.sprite.spritecollide(player, mobs, True, pygame.sprite.collide_circle)        ## gives back a list, True makes the mob element disappear
+    for hit in hits:
+        player.shield -= hit.radius * 2
+        expl = Explosion(hit.rect.center, 'sm')
+        all_sprites.add(expl)
+        newmob()
+        if player.shield <= 0: 
+            player_die_sound.play()
+            death_explosion = Explosion(player.rect.center, 'player')
+            all_sprites.add(death_explosion)
+            # running = False     ## GAME OVER 3:D
+            player.hide()
+            player.lives -= 1
             player.shield = 100
-    if hit.type == 'gun':
-        player.powerup()
         
-##  se o jogador morrer e a explosão terminar, finalize o jogo
-if player.lives == 0 and not death_explosion.alive():
-    running = False
-    # menu_display = True
-    # pygame.display.update()
+    ##  se o jogador acertar um power up
+    hits = pygame.sprite.spritecollide(player, powerups, True)
+    for hit in hits:
+        if hit.type == 'shield':
+            player.shield += random.randrange(10, 30)
+            if player.shield >= 100:
+                player.shield = 100
+        if hit.type == 'gun':
+            player.powerup()
+        
+    ##  se o jogador morrer e a explosão terminar, finalize o jogo
+    if player.lives == 0 and not death_explosion.alive():
+        running = False
+        # menu_display = True
+        # pygame.display.update()
     
-#3 Draw/render
-screen.fill(BLACK)
-##  desenhe a imagem stargaze.png
-screen.blit(background, background_rect)
+    #3 Draw/render
+    screen.fill(BLACK)
+    ##  desenhe a imagem stargaze.png
+    screen.blit(background, background_rect)
 
-all_sprites.draw(screen)
-draw_text(screen, str(score), 18, WIDTH /2, 10)    ##  10px para baixo da tela
-draw_shield_bar(screen, 5, 5, player.shield)
+    all_sprites.draw(screen)
+    draw_text(screen, str(score), 18, WIDTH /2, 10)    ##  10px para baixo da tela
+    draw_shield_bar(screen, 5, 5, player.shield)
 
-# Desenhe vidas
-draw_lives(screen, WIDTH - 100, 5, player_mini_img)
+    # Desenhe vidas
+    draw_lives(screen, WIDTH - 100, 5, player.lives, player_mini_img)
 
-##  Feito depois de desenhar tudo na tela
-pygame.display.flip()
+    ##  Feito depois de desenhar tudo na tela
+    pygame.display.flip()
 
 pygame.quit()
 
-# By: Max Muller                     
+# By: Max Muller
+                  
