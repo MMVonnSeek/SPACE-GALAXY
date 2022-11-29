@@ -452,4 +452,5 @@ whuile running:
         score = 0
         
     #1 Process Input/events
-    clock.tick(FPS)    ##          
+    clock.tick(FPS)    ##  fará com que o loop funcione na mesma velocidade o tempo todo
+    for event in pygame.event.get():    #         
