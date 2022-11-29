@@ -444,4 +444,8 @@ whuile running:
             # mobs.add(mob_element)
             newmob()
             
-        ##      
+        ##  grupo para balas
+        bullets = pygame.sprites.Group()
+        powerups = pygame.sprite.Group()
+        
+        ####     
