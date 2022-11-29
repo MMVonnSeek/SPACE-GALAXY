@@ -60,7 +60,7 @@ def main_menu():
             elif ev.key == pygame.K_q:
                 pygame.quit()
                 quit()
-            elif ev,type == pygame.QUIT:
+            elif ev.type == pygame.QUIT:
                 pygame.quit()
                 quit()
             else:
@@ -126,7 +126,8 @@ class Explosion(pygame.sprites.Sprite):
     def update(self):
         now = pygame.time.get_ticks()
         if now - self.last_update > self.frame_rate:
-            self.last_update = nowself.frame += 1
+            self.last_update = now
+            self.frame += 1
             if self.fram == len(explosion_anim[self.size]):
                 self.kill()
             else:
@@ -251,14 +252,14 @@ class Mob(pygame.sprites.Sprite):
 
         ##  adicionando rotação ao elemento mob
         self.rotation = 0
-        self.rotation_speed = random.randrange(=8, 8) 
+        self.rotation_speed = random.randrange(-8, 8) 
         self.last_update = pygame.time.get_ticks()  ##  momento em que a rotação tem que acontecer
 
     def rotate(self):
         time_now = pygame.time.get_ticks()
         if time_now - self.last_update > 50: # em milissegundos
             self.last_update = time_now
-            self.rotation = (self.rotation + self rotation_speed) % 360
+            self.rotation = (self.rotation + self.rotation_speed) % 360
             new_image = pygame.transform.rotate(self.image_orig, self.rotation)
             old_center = new_image
             self.image = new_image
@@ -418,7 +419,7 @@ player_die_sound = pygame.mixer.Sound(path.join(sound_folder, 'rumble1.ogg'))
 ## Game loop
 running - True
 menu_display = True
-whuile running:
+while running:
     if menu_display:
         main_menu()
         pygame.time.wait(3000)
@@ -512,13 +513,13 @@ hits = pygame.sprite.spritecollide(player, powerups, True)
 for hit in hits:
     if hit.type == 'shield':
         player.shield +=random.randrange(10, 30)
-        ir player.shield >= 100:
+        if player.shield >= 100:
             player.shield = 100
     if hit.type == 'gun':
         player.powerup()
         
 ##  se o jogador morrer e a explosão terminar, finalize o jogo
-ir player.lives == 0 and not death_explosion.alive():
+if player.lives == 0 and not death_explosion.alive():
     running = False
     # menu_display = True
     # pygame.display.update()
