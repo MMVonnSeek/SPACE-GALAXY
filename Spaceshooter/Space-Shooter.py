@@ -529,4 +529,10 @@ screen.fill(BLACK)
 screen.blit(background, background_rect)
 
 all_sprites.draw(screen)
-draw_text(screen, str(score), 18, WIDTH /2, 10)    ##  10px                          
+draw_text(screen, str(score), 18, WIDTH /2, 10)    ##  10px para baixo da tela
+draw_shield_bar(screen, 5, 5, player.shield)
+
+# Desenhe vidas
+draw_lives(screen, WIDTH - 100, 5, player_mini_img)
+
+##                         
