@@ -448,4 +448,8 @@ whuile running:
         bullets = pygame.sprites.Group()
         powerups = pygame.sprite.Group()
         
-        ####     
+        #### Variável do placar
+        score = 0
+        
+    #1 Process Input/events
+    clock.tick(FPS)    ##          
