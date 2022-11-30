@@ -278,7 +278,6 @@ class Mob(pygame.sprite.Sprite):
             self.rect.y = random.randrange(-100, -40)
             self.speedy = random.randrange(1, 8)  ##  para randomizar a velocidade do Mob
 
-            
 ##  defina a sprite para Powerups   
 class Pow(pygame.sprite.Sprite):
     def __init__(self, center):
@@ -428,7 +427,7 @@ while running:
         # Parar a música do menu
         pygame.mixer.music.stop()
         #   Tocar a música do jogo
-        pygame.mixer.music.load(path.join(sound_folder, 'tgfcoder-FrozenJam-Seamlessloop.ogg'))
+        pygame.mixer.music.load(path.join(sound_folder, 'tgfcoder-FrozenJam-SeamlessLoop.ogg'))
         pygame.mixer.music.play(-1)     ##  faz o jogo soar em um loop infinito
         
         menu_display = False
@@ -457,7 +456,7 @@ while running:
     clock.tick(FPS)    ##  fará com que o loop funcione na mesma velocidade o tempo todo
     for event in pygame.event.get():    # obtém todos os eventos que ocorreram até agora e os mantém atualizados.
         ##  ouvindo o botão X no topo
-        if event.type == pygame.Quit:
+        if event.type == pygame.QUIT:
             running = False
             
         ##  Pressione ESC para sair do jogo
@@ -469,7 +468,7 @@ while running:
         #     if event.key == pygame.K_SPACE:
         #         player.shoot()      ## we have to define the shoot()  function
 
-    #2 Atualização
+    #2 Update
     all_sprites.update()
     
     
@@ -536,7 +535,7 @@ while running:
     draw_text(screen, str(score), 18, WIDTH /2, 10)    ##  10px para baixo da tela
     draw_shield_bar(screen, 5, 5, player.shield)
 
-    # Desenhe vidas
+    # Draw lives
     draw_lives(screen, WIDTH - 100, 5, player.lives, player_mini_img)
 
     ##  Feito depois de desenhar tudo na tela
