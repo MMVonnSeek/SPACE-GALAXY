@@ -62,7 +62,7 @@ def main_menu():
                 quit()
         elif ev.type == pygame.QUIT:
                 pygame.quit()
-                quit()
+                quit() 
         else:
             draw_text(screen, "Aperte [ENTER] para Começar", 30, WIDTH/2, HEIGHT/2)
             draw_text(screen, "ou [Q] para Sair", 30, WIDTH/2, (HEIGHT/2)+40)
@@ -72,7 +72,7 @@ def main_menu():
     ready = pygame.mixer.Sound(path.join(sound_folder,'getready.ogg'))
     ready.play()
     screen.fill(BLACK)
-    draw_text(screen, "PREPARE-SE", 60, WIDTH/2, HEIGHT/2)
+    draw_text(screen, "PREPARE-SE!", 60, WIDTH/2, HEIGHT/2)
     pygame.display.update()
 
 
@@ -88,7 +88,7 @@ def draw_text(surf, text, size, x, y):
 def draw_shield_bar(surf, x, y, pct):
     # if pct < 0:
     #     pct = 0
-    pct = max(pct, 0)
+    pct = max(pct, 0) 
     ## moving them to top
     # BAR_LENGTH = 100
     # BAR_HEIGHT = 10
@@ -119,7 +119,7 @@ class Explosion(pygame.sprite.Sprite):
         self.image = explosion_anim[self.size][0]
         self.rect = self.image.get_rect()
         self.rect.center = center
-        self.frame = 0
+        self.frame = 0 
         self.last_update = pygame.time.get_ticks()
         self.frame_rate = 75
 
@@ -147,7 +147,7 @@ class Player(pygame.sprite.Sprite):
         self.radius = 20
         self.rect.centerx = WIDTH / 2
         self.rect.bottom = HEIGHT - 10
-        self.speedx = 0
+        self.speedx = 0 
         self.shield = 100
         self.shoot_delay = 250
         self.last_shot = pygame.time.get_ticks()
