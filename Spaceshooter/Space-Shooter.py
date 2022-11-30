@@ -1,4 +1,4 @@
-## Space Shooter
+
 from __future__ import division
 import pygame
 import random
@@ -60,15 +60,15 @@ def main_menu():
             elif ev.key == pygame.K_q:
                 pygame.quit()
                 quit()
-            elif ev.type == pygame.QUIT:
+        elif ev.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-            else:
-                draw_text(screen, "Aperte [ENTER] para Começar", 30, WIDTH/2, HEIGHT/2)
-                draw_text(screen, "ou [Q] para Sair", 30, WIDTH/2, (HEIGHT/2)+40)
-                pygame.display.update()
+        else:
+            draw_text(screen, "Aperte [ENTER] para Começar", 30, WIDTH/2, HEIGHT/2)
+            draw_text(screen, "ou [Q] para Sair", 30, WIDTH/2, (HEIGHT/2)+40)
+            pygame.display.update()
 
-    #pygame.mixer.muisc.stop()
+    #pygame.mixer.music.stop()
     ready = pygame.mixer.Sound(path.join(sound_folder,'getready.ogg'))
     ready.play()
     screen.fill(BLACK)
@@ -128,7 +128,7 @@ class Explosion(pygame.sprite.Sprite):
         if now - self.last_update > self.frame_rate:
             self.last_update = now
             self.frame += 1
-            if self.fram == len(explosion_anim[self.size]):
+            if self.frame == len(explosion_anim[self.size]):
                 self.kill()
             else:
                 center = self.rect.center
@@ -139,18 +139,18 @@ class Explosion(pygame.sprite.Sprite):
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
-        pygame.sprite.Sprites.__init__(self)
+        pygame.sprite.Sprite.__init__(self)
         ## dimensionar o jogador img para baixo
         self.image = pygame.transform.scale(player_img, (50, 38))
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.radius = 20
-        self.rectcenterx = WIDTH / 2
-        self.ect.bottom = HEIGHT - 10
+        self.rect.centerx = WIDTH / 2
+        self.rect.bottom = HEIGHT - 10
         self.speedx = 0
         self.shield = 100
         self.shoot_delay = 250
-        self.last_shot = pygame.time.det_ticks()
+        self.last_shot = pygame.time.get_ticks()
         self.lives = 3
         self.hidden = False
         self.hide_timer = pygame.time.get_ticks()
@@ -243,7 +243,7 @@ class Mob(pygame.sprite.Sprite):
         self.image_orig.set_colorkey(BLACK)
         self.image = self.image_orig.copy()
         self.rect = self.image.get_rect()
-        self.radius = int(self.rect.width * 90 / 2)
+        self.radius = int(self.rect.width *.90 / 2)
         self.rect.x = random.randrange(0, WIDTH - self.rect.width)
         self.rect.y = random.randrange(-150, -100)
         self.speedy = random.randrange(5, 20)  ##  para randomizar a velocidade do Mob
@@ -262,9 +262,9 @@ class Mob(pygame.sprite.Sprite):
             self.last_update = time_now
             self.rotation = (self.rotation + self.rotation_speed) % 360
             new_image = pygame.transform.rotate(self.image_orig, self.rotation)
-            old_center = new_image
+            old_center = self.rect.center
             self.image = new_image
-            self.rect = new_image.get_rect()
+            self.rect = self.image.get_rect()
             self.rect.center = old_center
 
     def update(self):
@@ -273,7 +273,7 @@ class Mob(pygame.sprite.Sprite):
         self.rect.y += self.speedy
         ##  agora e se o elemento mob sair da tela
 
-        if (self.rect.top > HEIGHT + 10) or (self.rect.left < -25) or (self.rect.right > HEIGHT +20):
+        if (self.rect.top > HEIGHT + 10) or (self.rect.left < -25) or (self.rect.right > HEIGHT + 20):
             self.rect.x = random.randrange(0, WIDTH - self.rect.width)
             self.rect.y = random.randrange(-100, -40)
             self.speedy = random.randrange(1, 8)  ##  para randomizar a velocidade do Mob
@@ -352,16 +352,16 @@ player_mini_img = pygame.transform.scale(player_img, (25, 19))
 player_mini_img.set_colorkey(BLACK)
 bullet_img = pygame.image.load(path.join(img_dir, 'laserRed16.png')).convert()
 missile_img = pygame.image.load(path.join(img_dir, 'missile.png')).convert_alpha()
-meteor_img = pygame.image.load(path.join(img_dir, 'meteorBrown_med1.png')).convert()
+# meteor_img = pygame.image.load(path.join(img_dir, 'meteorBrown_med1.png')).convert()
 meteor_images = []
 meteor_list = [
     'meteorBrown_big1.png',
     'meteorBrown_big2.png',
     'meteorBrown_med1.png',
-    'meteorBrown_med3.ong',
+    'meteorBrown_med3.png',
     'meteorBrown_small1.png',
     'meteorBrown_small2.png',
-    'meteorbrown_tiny1.png'
+    'meteorBrown_tiny1.png'
 ]
 
 for image in meteor_list:
@@ -370,7 +370,7 @@ for image in meteor_list:
 ## Explosão do meteoro
 explosion_anim = {}
 explosion_anim['lg'] = []
-explosion_anim['sn'] = []
+explosion_anim['sm'] = []
 explosion_anim['player'] = []
 for i in range(9):
     filename = 'regularExplosion0{}.png'.format(i)
@@ -379,7 +379,7 @@ for i in range(9):
     ##  redimensionar a explosão
     img_lg = pygame.transform.scale(img, (75, 75))
     explosion_anim['lg'].append(img_lg)
-    img_sm = pygame.transform.sclae(img, (32, 32))
+    img_sm = pygame.transform.scale(img, (32, 32))
     explosion_anim['sm'].append(img_sm)
     
     ## explosão do jogador
@@ -402,7 +402,7 @@ powerup_images['gun'] = pygame.image.load(path.join(img_dir, 'bolt_gold.png')).c
 shooting_sound = pygame.mixer.Sound(path.join(sound_folder, 'pew.wav'))
 missile_sound = pygame.mixer.Sound(path.join(sound_folder, 'rocket.ogg'))
 expl_sounds = []
-for sound in ['exp13.wav', 'exp16.wav']:
+for sound in ['expl3.wav', 'expl6.wav']:
     expl_sounds.append(pygame.mixer.Sound(path.join(sound_folder, sound)))
 ##  música de fundo principal    
 #pygame.mixer.music.load(path.join(sound_folder, 'tgfcoder-FrozenJam-SeamlessLoop.ogg'))
@@ -428,7 +428,7 @@ while running:
         # Parar a música do menu
         pygame.mixer.music.stop()
         #   Tocar a música do jogo
-        pygame.mixer.music.load(path.join(sound_folder, ' tgfcoder-FrozenJam-Seamlessloop.ogg'))
+        pygame.mixer.music.load(path.join(sound_folder, 'tgfcoder-FrozenJam-Seamlessloop.ogg'))
         pygame.mixer.music.play(-1)     ##  faz o jogo soar em um loop infinito
         
         menu_display = False
@@ -483,6 +483,7 @@ while running:
         random.choice(expl_sounds).play()
         # m = Mob()
         # all_sprites.add(m)
+        # mobs.add(m)
         expl = Explosion(hit.rect.center, 'lg')
         all_sprites.add(expl)
         if random.random() > 0.9:
