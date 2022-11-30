@@ -249,7 +249,7 @@ class Mob(pygame.sprite.Sprite):
         self.speedy = random.randrange(5, 20)  ##  para randomizar a velocidade do Mob
 
         ## randomize os movimentos um pouco mais
-        self.speddx = random.randrange(-3, 3)
+        self.speedx = random.randrange(-3, 3)
 
         ##  adicionando rotação ao elemento mob
         self.rotation = 0
