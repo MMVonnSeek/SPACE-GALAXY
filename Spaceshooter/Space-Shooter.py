@@ -543,5 +543,4 @@ while running:
 
 pygame.quit()
 
-# By: Max Muller
-                  
+# By: Max Muller                  
