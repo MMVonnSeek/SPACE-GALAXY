@@ -2,6 +2,7 @@
 # Space Shooter
 > SPACE SHOOTER
 
+Vou desenvolver o jogo Space Shooter totalmente funcional e completo usando a 
 
 # Do que se trata o jogo?
 
