@@ -11,11 +11,11 @@
 
 ## Importe as bibliotecas:
 
-#####
+##### division
 
-#####
+##### pygame
 
-#####
+##### random
 
-#####
+##### path
 
