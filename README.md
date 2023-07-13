@@ -21,3 +21,6 @@ Vou desenvolver o jogo Space Shooter totalmente funcional e completo usando a
 ##### import random
 
 ##### import path
+
+
+![octocat-1689256466099](https://github.com/MMVonnSeek/SPACE-GALAXY/assets/89359847/cc12fc83-ea5c-4fc9-b666-86dde4615682)
